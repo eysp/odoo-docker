@@ -6,4 +6,5 @@ num2words
 phonenumbers
 wechatpy
 xlwt
-openpyxl zxcvbn
+openpyxl 
+zxcvbn
