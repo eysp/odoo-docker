@@ -98,6 +98,7 @@ ADD bin/boot /usr/bin/boot
 ENTRYPOINT [ "/usr/bin/dumb-init", "/usr/bin/boot" ]
 CMD [ "help" ]
 
+ENV ODOO_TIMEZONE=Asia/Shanghai
 RUN sed -i "s/fonts\.googleapis\.com/fonts.lug.ustc.edu.cn/g" \
   `grep 'fonts\.googleapis\.com' -rl /opt/odoo/sources/odoo/addons`
 
