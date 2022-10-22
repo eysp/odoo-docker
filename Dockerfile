@@ -52,7 +52,7 @@ RUN pip3 install -r /opt/sources/pip.txt
 ADD https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/wkhtmltox_0.12.6.1-2.bullseye_arm64.deb \
   /opt/sources/wkhtmltox.deb
 RUN apt update \
-  && apt install -yq xfonts-base xfonts-75dpi \
+  && apt install -yq xfonts-base xfonts-75dpi ttf-wqy-zenhei \
   && dpkg -i /opt/sources/wkhtmltox.deb
 
 # Install postgresql-client
@@ -97,6 +97,9 @@ RUN dpkg -i /opt/sources/dumb-init.deb
 ADD bin/boot /usr/bin/boot
 ENTRYPOINT [ "/usr/bin/dumb-init", "/usr/bin/boot" ]
 CMD [ "help" ]
+
+RUN sed -i "s/fonts\.googleapis\.com/fonts.lug.ustc.edu.cn/g" \
+  `grep 'fonts\.googleapis\.com' -rl /opt/odoo/sources/odoo/addons`
 
 # Expose the odoo ports (for linked containers)
 EXPOSE 8069 8072
