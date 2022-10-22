@@ -50,7 +50,7 @@ ADD sources/pip.txt /opt/sources/pip.txt
 RUN pip3 install -r /opt/sources/pip.txt
 
 # Install wkhtmltopdf based on QT5
-ADD https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/wkhtmltox_0.12.6.1-2.bullseye_arm64.deb \
+ADD https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.focal_arm64.deb \
   /opt/sources/wkhtmltox.deb
 RUN apt update \
   && apt install -yq xfonts-base xfonts-75dpi ttf-wqy-zenhei \
