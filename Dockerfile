@@ -42,6 +42,7 @@ ADD auto_addons /opt/odoo/auto_addons
 User 0
 
 # Install Odoo python dependencies
+RUN sed -i s/20.9.0/21.12.0/g /opt/odoo/sources/odoo/requirements.txt
 RUN pip3 install -r /opt/odoo/sources/odoo/requirements.txt
 
 # Install extra python dependencies
